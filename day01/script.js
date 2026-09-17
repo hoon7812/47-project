@@ -1,6 +1,10 @@
 
 
-// 배열, splice 스터디
+// 배열, splice > 배열의 중간 데이터를 삭제 / 추가 / 교체
+
+// splice(어디서, 몇 개 삭제, 뭘 넣을지)
+//           ↑       ↑          ↑
+//         시작점   삭제수      추가값
 
 const fruits = ['사과', '바나나', '복숭아', '포도', '수박'];
 
@@ -122,3 +126,12 @@ console.log(result9);
 //     .map(...)
 
 // 배열을 반환하는 메서드 뒤에 또 다른 메서드를 붙이는 방식
+
+
+const userList = document.querySelector('#userList'); //HTML에서 특정 요소 찾기
+
+result9.forEach(user => {
+    const li = document.createElement('li'); //HTML 요소 만들기
+    li.textContent = user;
+    userList.appendChild(li); //만든 요소를 화면에 붙이기
+});
