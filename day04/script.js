@@ -146,3 +146,34 @@ const result3 = products
   });
 
 console.log(result3);
+
+
+
+
+
+
+function makeProductText(name, price) {
+    return `${name} : ${price.toLocaleString()}원`;
+}
+
+const productList = document.querySelector('#productList');
+
+function renderProduct(product) {
+    const li = document.createElement('li');
+
+    li.textContent = makeProductText(product.name, product.price);
+
+    productList.appendChild(li);
+}
+
+products
+  .filter(product => {
+    // return product.price >= 1200000;
+    // return product.price >= 1000000 && product.name ==- '맥북'; //==는 자료형이 달라도 변환해서 비교하고, ===는 값과 자료형까지 똑같아야 true. 둘 다 맞아야 통과.
+    // return product.name === '아이폰' || product.name === '맥북'; //둘 중 하나만 만족해도 됨.
+    // return product.price < 1000000 || product.name === '맥북'
+    return product.price >= 1000000 && (product.name === '아이폰' || product.name === '갤럭시');
+  })
+  .forEach(product => {
+    renderProduct(product)
+  });
